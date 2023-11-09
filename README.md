@@ -6,12 +6,6 @@ Clonar o repositório
   git clone [https://github.com/](https://github.com/palbarnaz/api-crud-carros)
 ```
 
-Entrar na pasta do projeto
-
-```bash
-  cd backend-1-node
-```
-
 Instalar as depêndencias do projeto
 
 ```bash
