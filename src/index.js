@@ -21,7 +21,7 @@ app.get('/carros/pegar-id-query', (request, response) => {
   if(carro.length == 0){
      return response.status(401).json('id inválido')
   }
-  
+
   return response.json(carro)
 
 })
@@ -49,6 +49,29 @@ app.post('/carros', (request, response) => {
   carros.push(novoCarro)
   return response.status(201).json(novoCarro)
 });
+
+
+app.put('/carros/:id', (request, response) => {
+  const params = request.params
+  const body = request.body
+
+  const alteraIndiceCarro = carros.findIndex(carro => carro.id == Number(params.id))
+
+  if (alteraIndiceCarro == -1) {
+      return response.status(401).json('id inválido')
+  }
+  const carro = {
+      id: Number(params.id),
+      modelo: body.modelo,
+      marca: body.marca,
+      ano: body.ano,
+      cor: body.cor,
+      preco: body.preco
+  }
+
+  carros[alteraIndiceCarro] = carro
+  return response.json(carros[alteraIndiceCarro])
+})
 
 
 
